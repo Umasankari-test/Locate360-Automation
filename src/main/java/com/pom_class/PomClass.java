@@ -29,6 +29,9 @@ public class PomClass {
     
     @FindBy(xpath = "//span[text()='Forgot Password']")
     WebElement forgotPassword;
+    
+    @FindBy(xpath = "//button[text()='Continue']")
+    WebElement continueButton;
 
     public WebElement getEmail() {
         return email;
@@ -44,6 +47,9 @@ public class PomClass {
     public WebElement getForgotPassword() {
         return forgotPassword;
     }
-    
+ 
+    public WebElement getContinueButton() {
+        return continueButton;
+    }
     
 }

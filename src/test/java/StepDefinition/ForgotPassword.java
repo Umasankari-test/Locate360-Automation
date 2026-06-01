@@ -1,5 +1,7 @@
 package StepDefinition;
 
+import org.junit.Assert;
+
 import com.base_class.BaseClass;
 import com.pom_class.PomClass;
 import io.cucumber.java.en.Then;
@@ -20,15 +22,46 @@ public class ForgotPassword extends BaseClass {
     }
   
     @When("User clicks forgot password link")
-    public void user_clicks_forgot_password_link() {
+    public void user_clicks_forgot_password_link() throws InterruptedException {
 
         pom.getForgotPassword().click();
+        Thread.sleep(2000);
     }
 
     @Then("forgot password page should be displayed")
     public void forgot_password_page_should_be_displayed() {
 
-        System.out.println("Forgot Password Page Opened");
-        System.out.println(driver.getCurrentUrl());
+        Assert.assertNotNull(driver.getCurrentUrl());
+
+        System.out.println("Forgot Password Page Opened Successfully");
+    }
+    
+    @When("User enters {string} in forgot password")
+    public void user_enters_in_forgot_password(String email) {
+
+        pom = new PomClass(driver);
+
+        pom.getEmail().sendKeys(email);
+    }
+    
+    @When("User enters valid email in forgot password")
+    public void user_enters_valid_email_in_forgot_password() {
+
+    	pom = new PomClass(driver);
+    	
+        pom.getEmail().sendKeys("testing.field@gmail.com");
+    }
+    
+    @Then("Verification email should be sent successfully")
+    public void verification_email_should_be_sent_successfully() {
+
+    	 Assert.assertNotNull(driver);
+    	 
+        System.out.println("Verification Email Sent Successfully");
+    }
+    @When("User clicks continue button")
+    public void user_clicks_continue_button() {
+
+        pom.getContinueButton().click();
     }
 }

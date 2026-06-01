@@ -7,17 +7,18 @@ When User enters credentials
 And User clicks signin button
 Then User should navigate to field executive dashboard
 
-Scenario: Login with invalid email
+
+Scenario Outline: Login Functionality Negative Test Cases
+
 Given User launches application
-When User enters invalid email
-And User enters valid password
+When User enters "<email>" and "<password>"
 And User clicks signin button
 Then Error message should be displayed
 
-Scenario: Login with invalid password
-Given User launches application
-When User enters valid email
-And User enters invalid password
-And User clicks signin button
-Then Error message should be displayed
-
+Examples:
+| email                    | password  |
+| abc@gmail.com            | Test@1234 |
+| testing.field@gmail.com  | xyz@321   |
+|                          | Test@1234 |
+| testing.field@gmail.com  |           |
+|                          |           |
