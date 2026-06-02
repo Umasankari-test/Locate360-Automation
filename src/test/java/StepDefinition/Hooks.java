@@ -7,7 +7,7 @@ public class Hooks extends BaseClass {
 
     @After
     public void quitDriver() throws InterruptedException {
-    	Thread.sleep(2000);
+    	Thread.sleep(4000);
         driver.quit();
     }
 }

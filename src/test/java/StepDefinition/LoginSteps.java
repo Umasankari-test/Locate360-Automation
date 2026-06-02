@@ -1,6 +1,7 @@
 package StepDefinition;
 
 import org.junit.Assert;
+
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.Duration;
@@ -14,81 +15,79 @@ import io.cucumber.java.en.When;
 
 public class LoginSteps extends BaseClass {
 
-    PomClass pom;
+	PomClass pom;
 
-    @Given("User launches application")
-    
-    public void user_launches_application() {
-        browserLaunch();
-        launchUrl("https://drctuaap3xvtm.cloudfront.net/");
-        pom = new PomClass(driver);
-    }
+	@Given("User launches application")
 
-    @When("User enters credentials")
-    
-    public void user_enters_credentials() {       
-        pom.getEmail().sendKeys("testing.field@gmail.com");
-        pom.getPassword().sendKeys("Test@1234");        
-    }
-    
-    //invalid email
-    
-    @When("User enters {string} and {string}")
-    public void user_enters_and(String email, String password) {
+	public void user_launches_application() {
+		browserLaunch();
+		launchUrl("https://drctuaap3xvtm.cloudfront.net/");
+		pom = new PomClass(driver);
+	}
 
-        pom.getEmail().sendKeys(email);
-        pom.getPassword().sendKeys(password);
-    }
+	@When("User enters credentials")
 
-    @When("User clicks signin button")
-    
-    public void user_clicks_signin_button() {
-        pom.getSignin().click();     
-    }
-    
-    @Then("User should navigate to field executive dashboard")
-    public void user_should_navigate_to_home_page() {
+	public void user_enters_credentials() {
+		pom.getEmail().sendKeys("testing.field@gmail.com");
+		pom.getPassword().sendKeys("Test@1234");
+	}
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	// invalid email
 
-        wait.until(ExpectedConditions.urlContains("/dashboard"));
+	@When("User enters {string} and {string}")
+	public void user_enters_and(String email, String password) {
 
-        String currentUrl = driver.getCurrentUrl();
+		pom.getEmail().sendKeys(email);
+		pom.getPassword().sendKeys(password);
+	}
 
-        System.out.println("Current URL : " + currentUrl);
+	@When("User clicks signin button")
 
-        Assert.assertEquals(
-            "https://drctuaap3xvtm.cloudfront.net/dashboard",
-            currentUrl
-        );
+	public void user_clicks_signin_button() throws InterruptedException {
+		pom.getSignin().click();
+		Thread.sleep(3000);
+	}
 
-        System.out.println("Login Successful");
-    }
-    
+	@Then("User should navigate to field executive dashboard")
+	public void user_should_navigate_to_field_executive_dashboard() {
 
-    @Then("Error message should be displayed")
-    public void error_message_should_be_displayed() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-        String currentUrl = driver.getCurrentUrl();
+		wait.until(ExpectedConditions.urlContains("/dashboard"));
 
-        System.out.println("Current URL : " + currentUrl);
+		String currentUrl = driver.getCurrentUrl();
 
-        Assert.assertTrue(currentUrl.contains("cloudfront"));
+		System.out.println("Current URL : " + currentUrl);
 
-        System.out.println("Error Message Displayed");
-    }
-     
-    //blank email
-    
-    @When("User leaves email blank")
-    public void user_leaves_email_blank() {
-        pom.getEmail().sendKeys("");
-    }
-    
-    //blank password
-    
-    @When("User leaves password blank")
-    public void user_leaves_password_blank() {
-        pom.getPassword().sendKeys("");
-    }
-    }
+		Assert.assertEquals("https://drctuaap3xvtm.cloudfront.net/dashboard", currentUrl);
+
+		System.out.println("Login Successful");
+	}
+
+	@Then("Error message should be displayed")
+	public void error_message_should_be_displayed() {
+
+		String currentUrl = driver.getCurrentUrl();
+
+		System.out.println("Current URL : " + currentUrl);
+
+		Assert.assertTrue(currentUrl.contains("cloudfront"));
+
+		System.out.println("Error Message Displayed");
+	}
+
+	// blank email
+
+	@When("User leaves email blank")
+	public void user_leaves_email_blank() {
+		pom.getEmail().sendKeys("");
+	}
+
+	// blank password
+
+	@When("User leaves password blank")
+	public void user_leaves_password_blank() {
+		pom.getPassword().sendKeys("");
+	}
+
+}
