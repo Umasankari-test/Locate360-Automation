@@ -46,7 +46,30 @@ public class PomClass {
 
 	@FindBy(xpath = "//button[text()='Next']")
 	WebElement submit;
-
+	
+	//VendorBusinessinfoValidation
+	@FindBy(xpath = "//input[@name='businessName']")
+	WebElement businessName;
+	
+	@FindBy(xpath = "//input[@name='businessType']")
+	WebElement businessType;
+	
+	@FindBy(xpath = "//input[@id='serviceCategory']")
+	WebElement serviceCategory;
+	
+//	//VendorAddressdetails
+//	@FindBy(xpath ="//input[@name ='completeAddress']")
+//	WebElement completeAddress;
+//	
+//	@FindBy(xpath ="//input[@name ='pincode']")
+//	WebElement pincode;
+//	
+//	@FindBy(xpath ="//input[@id ='city']")
+//	WebElement city;
+//	
+//	@FindBy(xpath ="//input[@placeholder ='State']")
+//	WebElement state;
+//	
 	// login module
 
 	public WebElement getEmail() {
@@ -86,5 +109,36 @@ public class PomClass {
 	public WebElement getNextButton() {
 		return submit;
 	}
-
+	
+	//VendorBusinessinfoValidation
+    public WebElement getbusinessName() {
+    	return businessName;
+    }
+    
+    public WebElement getbusinessType() {
+    	return businessType;
+    }
+    
+    public WebElement getserviceCategory() {
+    	return serviceCategory;
+    }
+    
+//    //VendorAddressdetails
+//    public WebElement getcompleteAddress() {
+//    	return completeAddress;
+//    }
+//    
+//    public WebElement getpincode() {
+//    	return pincode;
+//    }
+//    
+//    public WebElement getcity() {
+//    	return city;
+//    }
+//    
+//    public WebElement getState() {
+//    	return state;
+//    }
+//    
+    
 }
