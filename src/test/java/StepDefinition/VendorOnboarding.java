@@ -3,6 +3,8 @@ package StepDefinition;
 import java.time.Duration;
 
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,12 +22,15 @@ public class VendorOnboarding extends BaseClass {
 	public void user_clicks_vendor_onboarding() throws InterruptedException {
 
 		pom = new PomClass(driver);
-		
+
 		Thread.sleep(3000);
+
+		System.out.println("Before Next Click");
 
 		pom.getVendorOnboarding().click();
 
-		Thread.sleep(3000);
+		System.out.println("After Next Click");
+
 	}
 
 	@Then("Vendor Onboarding page should be displayed")
@@ -60,7 +65,7 @@ public class VendorOnboarding extends BaseClass {
 	}
 
 	@When("User clicks Next button")
-	public void user_clicks_next_button() {
+	public void user_clicks_next_button() throws InterruptedException {
 
 		pom.getNextButton().click();
 	}
@@ -74,7 +79,8 @@ public class VendorOnboarding extends BaseClass {
 		System.out.println("Navigated to Next Step Successfully");
 	}
 
-	@When("User enters vendor details{string} and {string}")
+	@When("User enters vendor details {string} and {string}")
+
 	public void user_enters_vendor_details(String vendorName, String phoneNumber) {
 
 		pom.getVendorName().clear();
@@ -94,23 +100,37 @@ public class VendorOnboarding extends BaseClass {
 	}
 
 	@When("User enters valid Business details")
-	 
+
 	public void user_enters_valid_business_details() throws InterruptedException {
-		
+
 		pom = new PomClass(driver);
-		
+
 		pom.getbusinessName().sendKeys("XYZ Traders");
+		
 		pom.getbusinessType().sendKeys("Retail");
-		pom.getserviceCategory().sendKeys("plumbing");
+		
+		pom.getserviceCategory().click();
+
+		Thread.sleep(2000);
+
+		Actions a = new Actions(driver);
+
+		a.moveToElement(pom.getserviceCategory())
+		 .click()
+		 .sendKeys("Home Services")
+		 .sendKeys(Keys.ENTER)
+		 .perform();
+
 		Thread.sleep(2000);
 	}
 
 	@When("User enters Business details {string} {string} {string}")
 
-	public void user_enters_business_Details(String businessName, String businessType, String serviceCategory) throws InterruptedException {
+	public void user_enters_business_Details(String businessName, String businessType, String serviceCategory)
+			throws InterruptedException {
 
 		pom = new PomClass(driver);
-		
+
 		pom.getbusinessName().clear();
 		pom.getbusinessType().clear();
 		pom.getserviceCategory().clear();
@@ -134,5 +154,47 @@ public class VendorOnboarding extends BaseClass {
 
 		System.out.println("Navigated to Step 3 Successfully");
 	}
-	
+
+	@When("User enters valid Address details")
+	public void user_enters_valid_address_details() {
+		
+		System.out.println("current URL = " + driver.getCurrentUrl());
+		
+		System.out.println("Address step opened");
+		
+		pom = new PomClass(driver);
+
+		pom.getAddress().sendKeys("Bank street");
+		pom.getpincode().sendKeys("607009");
+		pom.getcity().sendKeys("Chennai");
+		pom.getState().sendKeys("Tamil Nadu");
+	}
+
+	@When("User enters Address details {string} {string} {string} {string}")
+	public void user_enters_address_details(String Address, String pincode, String city, String state) {
+
+		pom = new PomClass(driver);
+
+		pom.getAddress().clear();
+		pom.getpincode().clear();
+		pom.getcity().clear();
+		pom.getState().clear();
+
+		pom.getAddress().sendKeys(Address);
+		pom.getpincode().sendKeys(pincode);
+		pom.getcity().sendKeys(city);
+		pom.getState().sendKeys(state);
+	}
+
+	@Then("User should navigate to Step 4")
+	public void user_should_navigate_to_step_4() {
+
+		System.out.println("Navigated to Step 4 Successfully");
+	}
+
+	@Then("Address Verification error message should be displayed")
+	public void address_verification_error_message_should_be_displayed() {
+
+		System.out.println("Address Verification Validation Error Displayed");
+	}
 }

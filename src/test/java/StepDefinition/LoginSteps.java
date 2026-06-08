@@ -27,28 +27,57 @@ public class LoginSteps extends BaseClass {
 
 	@When("User enters credentials")
 
-	public void user_enters_credentials() {
-		pom.getEmail().sendKeys("testing.field@gmail.com");
-		pom.getPassword().sendKeys("Test@1234");
+	public void user_enters_credentials() throws InterruptedException {
+
+		pom.getEmail().sendKeys("shankarguru.kiaq@gmail.com");
+
+		pom.getPassword().sendKeys("Shankar@123");
+
+		Thread.sleep(2000);
+	}
+
+	@When("User clicks eye icon")
+
+	public void user_clicks_eye_icon() throws InterruptedException {
+
+		pom = new PomClass(driver);
+
+		pom.getEyeIcon().click();
+
+		Thread.sleep(2000);
+	}
+
+	@Then("Password should be visible")
+
+	public void password_should_be_visible() {
+
+		String type = pom.getPassword().getAttribute("type");
+
+		Assert.assertEquals("text", type);
 	}
 
 	// invalid email
 
 	@When("User enters {string} and {string}")
+
 	public void user_enters_and(String email, String password) {
 
 		pom.getEmail().sendKeys(email);
+
 		pom.getPassword().sendKeys(password);
 	}
 
 	@When("User clicks signin button")
 
 	public void user_clicks_signin_button() throws InterruptedException {
+
 		pom.getSignin().click();
+
 		Thread.sleep(3000);
 	}
 
 	@Then("User should navigate to field executive dashboard")
+
 	public void user_should_navigate_to_field_executive_dashboard() {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -65,6 +94,7 @@ public class LoginSteps extends BaseClass {
 	}
 
 	@Then("Error message should be displayed")
+
 	public void error_message_should_be_displayed() {
 
 		String currentUrl = driver.getCurrentUrl();
@@ -79,14 +109,18 @@ public class LoginSteps extends BaseClass {
 	// blank email
 
 	@When("User leaves email blank")
+
 	public void user_leaves_email_blank() {
+
 		pom.getEmail().sendKeys("");
 	}
 
 	// blank password
 
 	@When("User leaves password blank")
+
 	public void user_leaves_password_blank() {
+
 		pom.getPassword().sendKeys("");
 	}
 

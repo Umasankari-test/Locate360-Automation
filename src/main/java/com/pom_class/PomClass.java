@@ -16,60 +16,153 @@ public class PomClass {
 	}
 
 	// Email Text Box
-	@FindBy(xpath = "//input[@type='email']")
+	@FindBy(xpath = "//input[@placeholder='Enter email ID']")
 	WebElement email;
 
-	// Password Text Box
-	@FindBy(xpath = "//input[@name='password']")
+	@FindBy(xpath = "//input[@placeholder='Enter Password']")
 	WebElement password;
 
 	// Sign In Button
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement signin;
 
-	@FindBy(xpath = "//span[text()='Forgot Password']")
+	// eyeIcon
+
+	@FindBy(xpath = "(//span[contains(@class,'cursor-pointer')])[1]")
+	WebElement eyeIcon;
+
+	// forgotPassword
+
+	@FindBy(xpath = "//span[@class=' hover:underline cursor-pointer']")
 	WebElement forgotPassword;
 
-	@FindBy(xpath = "//button[text()='Continue']")
+	@FindBy(name = "email")
+	WebElement forgotEmail;
+
+	@FindBy(xpath = "//button[@type='submit']")
 	WebElement continueButton;
 
 	// vendorOnaboarding module
 
-	@FindBy(xpath = "//button[text()='Vendor Onboarding']")
+	@FindBy(xpath = "//*[contains(text(),'Vendor Onboarding')]")
 	WebElement vendorOnboarding;
 
-	@FindBy(xpath = "//input[@id='vendorName']")
+	@FindBy(xpath = "//input[@name='vendorName']")
 	WebElement vendorName;
 
-	@FindBy(xpath="//input[@name='phoneNumber']")
+	@FindBy(xpath = "//input[@name='phoneNumber']")
 	WebElement phoneNumber;
 
-	@FindBy(xpath = "//button[text()='Next']")
+	@FindBy(xpath = "//button[contains(text(),'Next')]")
 	WebElement submit;
-	
-	//VendorBusinessinfoValidation
+
+	// VendorBusinessinfoValidation
 	@FindBy(xpath = "//input[@name='businessName']")
 	WebElement businessName;
-	
+
 	@FindBy(xpath = "//input[@name='businessType']")
 	WebElement businessType;
-	
-	@FindBy(xpath = "//input[@id='serviceCategory']")
+
+	@FindBy(xpath = "//input[@id='react-select-2-input']")
 	WebElement serviceCategory;
-	
-//	//VendorAddressdetails
-//	@FindBy(xpath ="//input[@name ='completeAddress']")
-//	WebElement completeAddress;
-//	
-//	@FindBy(xpath ="//input[@name ='pincode']")
-//	WebElement pincode;
-//	
-//	@FindBy(xpath ="//input[@id ='city']")
-//	WebElement city;
-//	
-//	@FindBy(xpath ="//input[@placeholder ='State']")
-//	WebElement state;
-//	
+
+	// VendorAddressdetails
+	@FindBy(xpath = "//textarea[@placeholder='Address']")
+	WebElement Address;
+
+	@FindBy(xpath = "//input[@name ='pincode']")
+	WebElement pincode;
+
+	@FindBy(xpath = "//input[@name ='city']")
+	WebElement city;
+
+	@FindBy(xpath = "//input[@name ='state']")
+	WebElement state;
+
+	// BusinessDetails
+	@FindBy(xpath = "//*[contains(text(),'Business Details')]")
+	WebElement BusinessDetails;
+
+	// Operating Hours
+
+	@FindBy(xpath = "//input[@name='weekdaysOpen']")
+	WebElement weekdayOpeningTime;
+
+	@FindBy(xpath = "//input[@name='weekdaysClose']")
+	WebElement weekdayClosingTime;
+
+	@FindBy(xpath = "//input[@name='saturdayOpen']")
+	WebElement saturdayOpeningTime;
+
+	@FindBy(xpath = "//input[@name='saturdayClose']")
+	WebElement saturdayClosingTime;
+
+	// Team Details
+
+	@FindBy(xpath = "//input[@name='totalStaff']")
+	WebElement totalStaff;
+
+	@FindBy(xpath = "//input[@name='technicians']")
+	WebElement technicians;
+
+	@FindBy(xpath = "//input[@name='supportStaff']")
+	WebElement supportStaff;
+
+	// Service Information
+
+	@FindBy(xpath = "//textarea[@type='textarea']")
+	WebElement servicesOffered;
+
+	@FindBy(xpath = "//input[@placeholder='Emergency Plumbing, Commercial Projects']")
+	WebElement specialization;
+
+	@FindBy(xpath = "//input[@placeholder='ISI Certified, Licensed Plumber']")
+	WebElement certification;
+
+	@FindBy(xpath = "//input[@name='yearsOfExperience']")
+	WebElement yearsOfExperience;
+
+	// Pricing Information
+
+	@FindBy(xpath = "//input[@name='priceRange']")
+	WebElement priceRange;
+
+	@FindBy(xpath = "//input[contains(@name,'call')]")
+	WebElement callOutCharges;
+
+	@FindBy(xpath = "//input[contains(@name,'min')]")
+	WebElement minServiceCharge;
+
+	// Service Coverage
+
+	@FindBy(xpath = "//input[@name='serviceRadius']")
+	WebElement serviceRadius;
+
+	@FindBy(xpath = "//input[@name='pincode']")
+	WebElement coveragePincode;
+
+	@FindBy(xpath = "//input[@name='areaName']")
+	WebElement areaName;
+
+	// Payment Method
+
+	@FindBy(xpath = "//*[text()='UPI']")
+	WebElement upi;
+
+	@FindBy(xpath = "//*[text()='Cash']")
+	WebElement cash;
+
+	@FindBy(xpath = "//*[text()='Card']")
+	WebElement card;
+
+	@FindBy(xpath = "//*[text()='Bank Transfer']")
+	WebElement bankTransfer;
+
+	// Save Button
+
+	@FindBy(xpath = "//button[contains(text(),'Save Business Details')]")
+	WebElement saveBusinessDetails;
+
 	// login module
 
 	public WebElement getEmail() {
@@ -84,8 +177,16 @@ public class PomClass {
 		return signin;
 	}
 
+	public WebElement getEyeIcon() {
+		return eyeIcon;
+	}
+
 	public WebElement getForgotPassword() {
 		return forgotPassword;
+	}
+
+	public WebElement getForgotEmail() {
+		return forgotEmail;
 	}
 
 	public WebElement getContinueButton() {
@@ -109,36 +210,116 @@ public class PomClass {
 	public WebElement getNextButton() {
 		return submit;
 	}
-	
-	//VendorBusinessinfoValidation
-    public WebElement getbusinessName() {
-    	return businessName;
-    }
-    
-    public WebElement getbusinessType() {
-    	return businessType;
-    }
-    
-    public WebElement getserviceCategory() {
-    	return serviceCategory;
-    }
-    
-//    //VendorAddressdetails
-//    public WebElement getcompleteAddress() {
-//    	return completeAddress;
-//    }
-//    
-//    public WebElement getpincode() {
-//    	return pincode;
-//    }
-//    
-//    public WebElement getcity() {
-//    	return city;
-//    }
-//    
-//    public WebElement getState() {
-//    	return state;
-//    }
-//    
-    
+
+	// VendorBusinessinfoValidation
+	public WebElement getbusinessName() {
+		return businessName;
+	}
+
+	public WebElement getbusinessType() {
+		return businessType;
+	}
+
+	public WebElement getserviceCategory() {
+		return serviceCategory;
+	}
+
+	// VendorAddressdetails
+	public WebElement getAddress() {
+		return Address;
+	}
+
+	public WebElement getpincode() {
+		return pincode;
+	}
+
+	public WebElement getcity() {
+		return city;
+	}
+
+	public WebElement getState() {
+		return state;
+	}
+
+	// BusinessDetails
+
+	public WebElement getBusinessDetails() {
+		return BusinessDetails;
+	}
+
+	public WebElement getWeekdayOpeningTime() {
+		return weekdayOpeningTime;
+	}
+
+	public WebElement getWeekdayClosingTime() {
+		return weekdayClosingTime;
+	}
+
+	public WebElement getSaturdayOpeningTime() {
+		return saturdayOpeningTime;
+	}
+
+	public WebElement getSaturdayClosingTime() {
+		return saturdayClosingTime;
+	}
+
+	public WebElement getTotalStaff() {
+		return totalStaff;
+	}
+
+	public WebElement getTechnicians() {
+		return technicians;
+	}
+
+	public WebElement getSupportStaff() {
+		return supportStaff;
+	}
+
+	public WebElement getServicesOffered() {
+		return servicesOffered;
+	}
+
+	public WebElement getSpecialization() {
+		return specialization;
+	}
+
+	public WebElement getCertification() {
+		return certification;
+	}
+
+	public WebElement getYearsOfExperience() {
+		return yearsOfExperience;
+	}
+
+	public WebElement getPriceRange() {
+		return priceRange;
+	}
+
+	public WebElement getCallOutCharges() {
+		return callOutCharges;
+	}
+
+	public WebElement getMinServiceCharge() {
+		return minServiceCharge;
+	}
+
+	public WebElement getServiceRadius() {
+		return serviceRadius;
+	}
+
+	public WebElement getCoveragePincode() {
+		return coveragePincode;
+	}
+
+	public WebElement getAreaName() {
+		return areaName;
+	}
+
+	public WebElement getUPI() {
+		return upi;
+	}
+
+	public WebElement getSaveBusinessDetails() {
+		return saveBusinessDetails;
+	}
 }

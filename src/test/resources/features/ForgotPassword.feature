@@ -23,7 +23,8 @@ And User clicks continue button
 Then Error message should be displayed
 
 Examples:
-| email         |
-| abc@gmail.com |
-| abc           |
-|               |
+| email                 |
+| shankarguru@gmail.com |
+| shankar@gmail.com     |
+| shankarguru.kiaq      |
+|                       |

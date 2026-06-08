@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-        features = "src/test/resources/features/VendorOnboarding.feature",
+        features = "src/test/resources/features/BusinessDetails.feature",
         glue = "StepDefinition",
         monochrome = true,
         publish = true
