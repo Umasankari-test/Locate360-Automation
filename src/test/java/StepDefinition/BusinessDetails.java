@@ -153,4 +153,73 @@ public class BusinessDetails extends BaseClass {
 		System.out.println("Business Details Saved Successfully");
 	}
 
+	@Then("Business Details validation error message should be displayed")
+	public void business_details_validation_error_message_should_be_displayed() {
+
+		System.out.println("Business Details Validation Error Displayed");
+	}
+
+	@When("User enters {string} {string} {string} {string} operating hours")
+	public void user_enters_operating_hours(String weekdayOpen, String weekdayClose, String saturdayOpen,
+			String saturdayClose) throws InterruptedException {
+
+		pom.getWeekdayOpeningTime().sendKeys(weekdayOpen);
+
+		pom.getWeekdayClosingTime().sendKeys(weekdayClose);
+
+		pom.getSaturdayOpeningTime().sendKeys(saturdayOpen);
+
+		pom.getSaturdayClosingTime().sendKeys(saturdayClose);
+		
+		Thread.sleep(2000);
+
+	}
+
+	@When("User enters {string} {string} {string} team details")
+	public void user_enters_team_details(String totalStaff, String technicians, String supportStaff) throws InterruptedException {
+
+		pom.getTotalStaff().sendKeys(totalStaff);
+
+		pom.getTechnicians().sendKeys(technicians);
+
+		pom.getSupportStaff().sendKeys(supportStaff);
+		
+		Thread.sleep(2000);
+
+	}
+
+	@When("User enters {string} {string} {string} service information")
+	public void user_enters_service_information(String services, String specialization, String experience) throws InterruptedException {
+
+		pom.getServicesOffered().sendKeys(services);
+
+		pom.getSpecialization().sendKeys(specialization);
+
+		pom.getYearsOfExperience().sendKeys(experience);
+
+		Thread.sleep(2000);
+	}
+
+	@When("User enters {string} {string} pricing information")
+	public void user_enters_pricing_information(String priceRange, String minServiceCharge) throws InterruptedException {
+
+		pom.getPriceRange().sendKeys(priceRange);
+
+		pom.getMinServiceCharge().sendKeys(minServiceCharge);
+
+		Thread.sleep(2000);
+	}
+
+	@When("User enters {string} {string} {string} service coverage details")
+	public void user_enters_service_coverage_details(String serviceRadius, String pincode, String areaName) throws InterruptedException {
+
+		pom.getServiceRadius().sendKeys(serviceRadius);
+
+		pom.getCoveragePincode().sendKeys(pincode);
+
+		pom.getAreaName().sendKeys(areaName);
+		
+		Thread.sleep(2000);
+
+	}
 }
