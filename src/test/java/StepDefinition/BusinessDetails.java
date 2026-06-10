@@ -17,7 +17,7 @@ public class BusinessDetails extends BaseClass {
 	PomClass pom;
 
 	@Given("User is on Business Details page")
-	public void user_is_on_business_details_page() throws InterruptedException {
+	public void user_is_on_business_details_page() {
 
 		browserLaunch();
 

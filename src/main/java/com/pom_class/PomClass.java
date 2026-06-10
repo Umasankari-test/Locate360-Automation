@@ -162,6 +162,33 @@ public class PomClass {
 
 	@FindBy(xpath = "//button[contains(text(),'Save Business Details')]")
 	WebElement saveBusinessDetails;
+	
+	//DailyActivityLog
+	
+	// Daily Activity Log
+
+	@FindBy(xpath = "//*[contains(text(),'Activity Log')]")
+	WebElement activityLog;
+
+	@FindBy(xpath = "//input[@name='date']")
+	WebElement activityDate;
+
+	@FindBy(xpath = "//input[@name='activityType']")
+	WebElement activityType;
+	
+	//Daily Summary
+	
+	@FindBy(xpath = "//h3[text()='Vendors Visited']")
+	WebElement vendorsvisited;
+	
+	@FindBy(xpath = "//h3[text()='Total Activities']")
+	WebElement totalactivities;
+
+	@FindBy(xpath = "//h3[text()='First Activity']")
+	WebElement firstactivity;
+	
+	@FindBy(xpath = "//h3[text()='Last Activity']")
+	WebElement lastactivity;
 
 	// login module
 
@@ -322,4 +349,36 @@ public class PomClass {
 	public WebElement getSaveBusinessDetails() {
 		return saveBusinessDetails;
 	}
+
+	// Daily Activity Log
+
+	public WebElement getActivityLog() {
+	    return activityLog;
+	}
+
+	public WebElement getActivityDate() {
+	    return activityDate;
+	}
+
+	public WebElement getActivityType() {
+	    return activityType;
+	}	
+	//Daily Summary
+	
+	public WebElement getVendorsVisited() {
+	    return vendorsvisited;
+	}
+
+	public WebElement getTotalActivities() {
+	    return totalactivities;
+	}
+
+	public WebElement getFirstActivity() {
+	    return firstactivity;
+	}
+
+	public WebElement getLastActivity() {
+	    return lastactivity;
+	}
+	
 }
