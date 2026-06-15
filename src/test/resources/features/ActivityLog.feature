@@ -8,7 +8,7 @@ And User enters activity type
 Then Activity details should be displayed
 
 Scenario Outline: Verify Daily Activity Log Negative Test Cases
-
+ 
 Given User is on Daily Activity Log page
 When User enters date "<date>" and  activityType "<activityType>"
 Then No activity message should be displayed

@@ -162,9 +162,7 @@ public class PomClass {
 
 	@FindBy(xpath = "//button[contains(text(),'Save Business Details')]")
 	WebElement saveBusinessDetails;
-	
-	//DailyActivityLog
-	
+
 	// Daily Activity Log
 
 	@FindBy(xpath = "//*[contains(text(),'Activity Log')]")
@@ -175,20 +173,43 @@ public class PomClass {
 
 	@FindBy(xpath = "//input[@name='activityType']")
 	WebElement activityType;
-	
-	//Daily Summary
-	
+
+	// Daily Summary
+
 	@FindBy(xpath = "//h3[text()='Vendors Visited']")
 	WebElement vendorsvisited;
-	
+
 	@FindBy(xpath = "//h3[text()='Total Activities']")
 	WebElement totalactivities;
 
 	@FindBy(xpath = "//h3[text()='First Activity']")
 	WebElement firstactivity;
-	
+
 	@FindBy(xpath = "//h3[text()='Last Activity']")
 	WebElement lastactivity;
+
+	// Attendance Module
+
+	@FindBy(xpath = "//button[contains(text(),'Attendance')]")
+	WebElement attendance;
+
+	@FindBy(xpath = "//button[contains(text(),'Check In')]")
+	WebElement checkInButton;
+
+	@FindBy(xpath = "//button[text()='Check Out']")
+	WebElement checkOutStatus;
+
+	@FindBy(xpath = "//button[text()='Today']")
+	WebElement today;
+
+	@FindBy(xpath = "//button[text()='History']")
+	WebElement history;
+
+	@FindBy(xpath = "//button[text()='Calendar']")
+	WebElement calendar;
+
+	@FindBy(xpath = "//button[text()='Report']")
+	WebElement report;
 
 	// login module
 
@@ -353,32 +374,61 @@ public class PomClass {
 	// Daily Activity Log
 
 	public WebElement getActivityLog() {
-	    return activityLog;
+		return activityLog;
 	}
 
 	public WebElement getActivityDate() {
-	    return activityDate;
+		return activityDate;
 	}
 
 	public WebElement getActivityType() {
-	    return activityType;
-	}	
-	//Daily Summary
-	
+		return activityType;
+	}
+	// Daily Summary
+
 	public WebElement getVendorsVisited() {
-	    return vendorsvisited;
+		return vendorsvisited;
 	}
 
 	public WebElement getTotalActivities() {
-	    return totalactivities;
+		return totalactivities;
 	}
 
 	public WebElement getFirstActivity() {
-	    return firstactivity;
+		return firstactivity;
 	}
 
 	public WebElement getLastActivity() {
-	    return lastactivity;
+		return lastactivity;
 	}
-	
+
+	// Attendance Module
+
+	public WebElement getAttendance() {
+		return attendance;
+	}
+
+	public WebElement getcheckInButton() {
+		return checkInButton;
+	}
+
+	public WebElement getcheckOutStatus() {
+		return checkOutStatus;
+	}
+
+	public WebElement getToday() {
+		return today;
+	}
+
+	public WebElement getHistory() {
+		return history;
+	}
+
+	public WebElement getCalendar() {
+		return calendar;
+	}
+
+	public WebElement getReport() {
+		return report;
+	}
 }
