@@ -1,5 +1,7 @@
 package com.pom_class;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -196,8 +198,8 @@ public class PomClass {
 	@FindBy(xpath = "//button[contains(text(),'Check In')]")
 	WebElement checkInButton;
 
-	@FindBy(xpath = "//button[text()='Check Out']")
-	WebElement checkOutStatus;
+//	@FindBy(xpath = "//button[text()='Check Out']")
+//	WebElement checkOutStatus;
 
 	@FindBy(xpath = "//button[text()='Today']")
 	WebElement today;
@@ -210,6 +212,29 @@ public class PomClass {
 
 	@FindBy(xpath = "//button[text()='Report']")
 	WebElement report;
+
+	// Map Navigation
+
+	@FindBy(xpath = "//button[text()='Map Navigation']")
+	WebElement mapnavigation;
+
+	@FindBy(xpath = "//h3[text()='Optimal Route']")
+	WebElement optimalroute;
+
+	@FindBy(xpath = "//h3[text()='Priority Based']")
+	WebElement prioritybased;
+
+	@FindBy(xpath = "//h3[text()='Custom Order']")
+	WebElement customorder;
+
+	@FindBy(xpath = "//button[text()='Open In Google Maps']")
+	WebElement openmap;
+
+	@FindBy(xpath = "//button[text()='Start Navigation']")
+	WebElement startnavigation;
+
+	@FindBy(xpath = "//button[text()='Navigate']")
+	List<WebElement> navigateButtons;
 
 	// login module
 
@@ -412,9 +437,9 @@ public class PomClass {
 		return checkInButton;
 	}
 
-	public WebElement getcheckOutStatus() {
-		return checkOutStatus;
-	}
+//	public WebElement getcheckOutStatus() {
+//		return checkOutStatus;
+//	}
 
 	public WebElement getToday() {
 		return today;
@@ -430,5 +455,35 @@ public class PomClass {
 
 	public WebElement getReport() {
 		return report;
+	}
+	
+	//Map Navigation
+	
+	public WebElement getMapNavigation() {
+		return mapnavigation;
+	}
+	
+	public WebElement getOptimalRoute() {
+		return optimalroute;
+	}
+	
+	public WebElement getPriorityBased() {
+		return prioritybased;
+	}
+	
+	public WebElement getCustomOrder() {
+		return customorder;
+	}
+	
+	public WebElement getOpenInGoogleMaps() {
+		return openmap;
+	}
+	
+	public WebElement getStartNavigation() {
+		return startnavigation;
+	}
+	
+	public List<WebElement> getNavigateButtons() {
+	    return navigateButtons;
 	}
 }

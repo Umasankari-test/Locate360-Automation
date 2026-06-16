@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 
 @CucumberOptions(
-        features = "src/test/resources/features/Attendance.feature",
+        features = "src/test/resources/features/MapNavigation.feature",
         glue = "StepDefinition",
         monochrome = true,
         publish = true
