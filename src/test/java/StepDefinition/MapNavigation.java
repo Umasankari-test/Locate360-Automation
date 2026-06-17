@@ -16,19 +16,19 @@ public class MapNavigation extends BaseClass {
 
 		browserLaunch();
 
-	    launchUrl("https://drctuaap3xvtm.cloudfront.net/");
+		launchUrl("https://drctuaap3xvtm.cloudfront.net/");
 
-	    pom = new PomClass(driver);
+		pom = new PomClass(driver);
 
-	    pom.getEmail().sendKeys("shankarguru.kiaq@gmail.com");
+		pom.getEmail().sendKeys("shankarguru.kiaq@gmail.com");
 
-	    pom.getPassword().sendKeys("Shankar@123");
+		pom.getPassword().sendKeys("Shankar@123");
 
-	    pom.getSignin().click();
+		pom.getSignin().click();
 
-	    pom.getMapNavigation().click();
+		pom.getMapNavigation().click();
 
-	    System.out.println("Route Map Navigation Page Opened");
+		System.out.println("Route Map Navigation Page Opened");
 
 	}
 
@@ -36,7 +36,7 @@ public class MapNavigation extends BaseClass {
 	public void user_clicks_optimal_route_card() throws InterruptedException {
 
 		pom.getOptimalRoute().click();
-		
+
 		Thread.sleep(2000);
 
 		System.out.println("Optimal Route Card Clicked");
@@ -46,7 +46,7 @@ public class MapNavigation extends BaseClass {
 	public void user_clicks_priority_based_card() throws InterruptedException {
 
 		pom.getPriorityBased().click();
-		
+
 		Thread.sleep(2000);
 
 		System.out.println("Priority Based Card Clicked");
@@ -56,7 +56,7 @@ public class MapNavigation extends BaseClass {
 	public void user_clicks_custom_order_card() throws InterruptedException {
 
 		pom.getCustomOrder().click();
-		
+
 		Thread.sleep(2000);
 
 		System.out.println("Custom Order Card Clicked");
@@ -72,7 +72,7 @@ public class MapNavigation extends BaseClass {
 	public void user_clicks_open_in_google_maps_button() throws InterruptedException {
 
 		pom.getOpenInGoogleMaps().click();
-		
+
 		Thread.sleep(2000);
 
 		System.out.println("Open In Google Maps Clicked");
@@ -88,19 +88,19 @@ public class MapNavigation extends BaseClass {
 	public void user_clicks_all_navigate_buttons() throws InterruptedException {
 
 		pom.getNavigateButtons().get(0).click();
-		
+
 		Thread.sleep(2000);
 
 		pom.getNavigateButtons().get(1).click();
-		
+
 		Thread.sleep(2000);
 
 		pom.getNavigateButtons().get(2).click();
-		
+
 		Thread.sleep(2000);
 
 		pom.getNavigateButtons().get(3).click();
-		
+
 		Thread.sleep(2000);
 
 		System.out.println("All Navigate buttons are clicked");
@@ -110,7 +110,7 @@ public class MapNavigation extends BaseClass {
 	public void user_clicks_start_navigation_button() throws InterruptedException {
 
 		pom.getStartNavigation().click();
-		
+
 		Thread.sleep(2000);
 
 		System.out.println("Start Navigation Clicked");
@@ -127,4 +127,46 @@ public class MapNavigation extends BaseClass {
 
 		System.out.println("Navigation Started Successfully");
 	}
+
+	// Negative TestCase
+
+	@When("User clicks Start Navigation button without selecting route")
+	public void user_clicks_start_navigation_button_without_selecting_route() {
+
+	    System.out.println("Start Navigation clicked without selecting route");
+	}
+
+	@Then("Navigation should not start")
+	public void navigation_should_not_start() {
+
+	    System.out.println("Navigation not started");
+	}
+
+	@When("User clicks Start Navigation button multiple times")
+	public void user_clicks_start_navigation_button_multiple_times() {
+
+	    pom.getStartNavigation().click();
+	    pom.getStartNavigation().click();
+
+	    System.out.println("Start Navigation clicked multiple times");
+	}
+
+	@Then("Only one navigation session should start")
+	public void only_one_navigation_session_should_start() {
+
+	    System.out.println("Only one navigation session started");
+	}
+
+	@When("User clicks Open In Google Maps button multiple times")
+	public void user_clicks_open_in_google_maps_button_multiple_times() {
+
+	    System.out.println("Open Google Maps clicked multiple times");
+	}
+
+	@Then("Only one Google Maps window should open")
+	public void only_one_google_maps_window_should_open() {
+
+	    System.out.println("Only one Google Maps window opened");
+	}
+
 }

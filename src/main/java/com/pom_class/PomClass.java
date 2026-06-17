@@ -235,6 +235,29 @@ public class PomClass {
 
 	@FindBy(xpath = "//button[text()='Navigate']")
 	List<WebElement> navigateButtons;
+	
+	// Lead Assignments
+
+	@FindBy(xpath = "//*[contains(text(),'Lead Assignments')]")
+	WebElement leadAssignments;
+
+	@FindBy(xpath = "//input[@placeholder='Search by name or business...']")
+	WebElement searchBox;
+
+	@FindBy(xpath = "//button[contains(text(),'Filter')]")
+	WebElement filterButton;
+
+	@FindBy(xpath = "//button[contains(text(),'Start Task')]")
+	WebElement startTask;
+
+	@FindBy(xpath = "//button[contains(text(),'Call')]")
+	WebElement callButton;
+
+	@FindBy(xpath = "//button[contains(text(),'Navigate')]")
+	WebElement navigateButton;
+
+	@FindBy(xpath = "//button[contains(text(),'Mark Complete')]")
+	WebElement markComplete;
 
 	// login module
 
@@ -485,5 +508,35 @@ public class PomClass {
 	
 	public List<WebElement> getNavigateButtons() {
 	    return navigateButtons;
+	}
+	
+	//Lead assignments
+	
+	public WebElement getLeadAssignments() {
+	    return leadAssignments;
+	}
+
+	public WebElement getSearchBox() {
+	    return searchBox;
+	}
+
+	public WebElement getFilterButton() {
+	    return filterButton;
+	}
+
+	public WebElement getStartTask() {
+	    return startTask;
+	}
+
+	public WebElement getCallButton() {
+	    return callButton;
+	}
+
+	public WebElement getNavigateButton() {
+	    return navigateButton;
+	}
+
+	public WebElement getMarkComplete() {
+	    return markComplete;
 	}
 }
