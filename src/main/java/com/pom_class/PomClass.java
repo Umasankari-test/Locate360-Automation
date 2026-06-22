@@ -25,7 +25,7 @@ public class PomClass {
 	WebElement password;
 
 	// Sign In Button
-	@FindBy(xpath = "//button[@type='submit']")
+	@FindBy(xpath = "//button[text()='Sign In →']")
 	WebElement signin;
 
 	// eyeIcon
@@ -258,7 +258,36 @@ public class PomClass {
 
 	@FindBy(xpath = "//button[contains(text(),'Mark Complete')]")
 	WebElement markComplete;
+	
+	//verification submit
+	
+	@FindBy(xpath ="//p[text()='Total']")
+	WebElement verificationtotal; 
+	
+	@FindBy(xpath = "//p[text()='Pending']")
+	WebElement pending;
+	
+	@FindBy(xpath = "//p[text()='In Review']")
+	WebElement inreview;
+	
+	@FindBy(xpath = "//p[text()='Submitted']")
+	WebElement submitted;
+	
+	@FindBy(xpath = "//p[text()='Approved']")
+	WebElement approved;
+	
+	@FindBy(xpath = "//p[text()='Rejected']")
+	WebElement rejected;
+	
+	@FindBy(xpath = "//button[text()='Verification Submit']")
+	WebElement verificationsubmit;
 
+	@FindBy(xpath = "//input[@name='search']")
+	WebElement search;
+	
+	@FindBy(xpath = "//button[text()='Submit']")
+	WebElement verifysubmit;
+	
 	// login module
 
 	public WebElement getEmail() {
@@ -539,4 +568,43 @@ public class PomClass {
 	public WebElement getMarkComplete() {
 	    return markComplete;
 	}
+	
+	//verification submit
+	
+	public WebElement getTotal() {
+		return verificationtotal;
+	}
+		
+	public WebElement getApproved() {
+		return approved;
+	}
+	
+	public WebElement getPending() {
+		return pending;
+	}
+	
+	public WebElement getInReview() {
+		return inreview;
+	}
+	
+	public WebElement getSubmitted() {
+		return submitted;
+	}
+	
+	public WebElement getRejected() {
+		return rejected;
+	}
+	
+	public WebElement getVerificationSubmit() {
+		return verificationsubmit;
+	}
+	
+	public WebElement getSearch() {
+		return search;
+	}
+	
+	public WebElement getSubmit() {
+		return verifysubmit;
+	}
+	
 }
